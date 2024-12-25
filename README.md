@@ -11,8 +11,9 @@
 - The `dnn.ipynb` or `autoencoder.ipynb` notebooks will assist you in preparing the data, training the model, and finally converting it to TFLite and C++ files.
 
 ## 2. Inference code
-- [ML_M460_SampleCode](https://github.com/OpenNuvoton/ML_M460_SampleCode)
-   - `tflu_gearbox_samplecode`
+- The ML_SampleCode repositories are private. Please contact Nuvoton to request access to these sample codes. [Link](https://www.nuvoton.com/ai/contact-us/)
+    - [ML_M460_SampleCode (private repo)](https://github.com/OpenNuvoton/ML_M460_SampleCode)
+        - `tflu_gearbox_samplecode`
 
 
 
