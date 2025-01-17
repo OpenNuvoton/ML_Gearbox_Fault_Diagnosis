@@ -1,7 +1,13 @@
-import math
+'''
+Builds a model with multiple hidden fully-connected layers.
+    model_settings (dict): Dictionary containing different settings for model training.
+        - 'fingerprint_size' (int): Size of the input features.
+        - 'label_count' (int): Number of output labels.
+    model_size_info (list): List where the length defines the number of hidden layers and
+        each element represents the number of neurons in that layer.
+    tf.keras.Model: A Keras Model instance of the 'DNN' architecture.
+'''
 import tensorflow as tf
-
-
 
 def create_dnn_model(model_settings, model_size_info):
     """Builds a model with multiple hidden fully-connected layers.

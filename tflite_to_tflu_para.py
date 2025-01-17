@@ -23,9 +23,9 @@ def convert_tflite_to_array(open_file, tflite_path, model_arr_name):
         tflite_path: Path to the TFLite to convert.
     """
 
-    open_file.write(f'#include <cstdint>\n')
-    open_file.write(f'#include <cstddef>\n')
-    open_file.write(f'#include "BufAttributes.h"\n\n')
+    open_file.write('#include <cstdint>\n')
+    open_file.write('#include <cstddef>\n')
+    open_file.write('#include "BufAttributes.h"\n\n')
 
     open_file.write(f"static const uint8_t {model_arr_name}[] ALIGNMENT_ATTRIBUTE = ")
 
@@ -44,7 +44,7 @@ size_t GetModelLen()
     return sizeof({model_arr_name});
 }}\n
 """)
-    
+
     # The specify parameter for different model
     open_file.write(f"""
 const float GetThreshold()
@@ -66,9 +66,7 @@ const float GetMinValTrain()
 {{
     return {FLAGS.min_val_train};
 }}\n
-""")    
-    
-
+""")
 
 def _write_tflite_data(open_file, tflite_path):
     """Write all tflite file binary data to an opened file."""
@@ -102,7 +100,10 @@ def _model_hex_bytes(tflite_path):
 
 
 def main():
-    with open(FLAGS.output_path, 'w') as f:
+    """
+    Main function to convert a TensorFlow Lite model to an array and write it to a file.
+    """
+    with open(FLAGS.output_path, 'w', encoding='utf-8') as f:
         convert_tflite_to_array(f, FLAGS.tflite_path, FLAGS.model_name)
 
 
@@ -143,6 +144,6 @@ if __name__ == '__main__':
         type=float,
         default=10,
         help='Min valuse of all train features for normalization',)
-    
+
     FLAGS, _ = parser.parse_known_args()
     main()
